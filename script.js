@@ -41,7 +41,10 @@ class Deck {
      * Hint: use buildCards in this method
      */
     reset() {
+        this.deck=[];
+        this.deck=buildCards(true);
         // write your code here
+
 
     } //End of reset()
 
@@ -50,6 +53,13 @@ class Deck {
      * Shuffling the cards
      */
     shuffle() {
+        for(let j=this.deck.length,i=0;i<j;i++){
+            let suits=Math.floor(Math.random()*j)
+            let values=this.deck[i];
+            this.deck[i]=this.deck[suits];
+            this.deck[suits]=values;
+        }
+        
         // write your code here
         
     } //End of shuffle()
@@ -59,6 +69,7 @@ class Deck {
      * @returns {String} A Card from the deck of cards
      */
     deal() {
+        return this.deck.pop();
         // write your code here
 
     } //End of deal()
@@ -68,6 +79,12 @@ class Deck {
      * @returns {Boolean} True or False 
      */
     isEmpty() {
+        if(this.deck.length==0){
+            return true;
+        }
+        else{
+            return false;
+        }
         // write your code here
 
     } //End of isEmpty()
@@ -77,6 +94,8 @@ class Deck {
      * @returns {Number} Number of cards in the Deck
      */
     length() {
+        return this.deck.length;
+
         // write your code here
 
     } //End of length()
